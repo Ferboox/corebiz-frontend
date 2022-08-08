@@ -33,10 +33,13 @@ export function Form() {
 
     // Si no hubo ningún error.
     if(!flag){
-      var raw = "{\n    \"email\": \"heroku@test.co\",\n    \"name\": \"test\"\n}";
+      var raw = `{\n    \"email\": \"${emailInput.value}\",\n    \"name\": \"${nameInput.value}\"\n}`;
 
       var requestOptions = {
         method: 'POST',
+        headers:{
+          'Content-Type' : 'application/json'
+        },
         body: raw,
         redirect: 'follow'
       };
