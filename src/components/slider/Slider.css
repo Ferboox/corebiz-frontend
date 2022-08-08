@@ -1,0 +1,30 @@
+  
+.slider-container{
+    width: 100%;
+    height: 52.3vh;
+}
+
+.slider-container .carousel{
+    height: 100%;
+    width: 100%;
+}
+
+.slider-container .carousel a{
+    display: none;
+}
+
+.slider-container .carousel .carousel-inner{
+    height: 100%;
+    width: 100%;
+}
+
+.slider-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators [data-bs-target]{
+    border-radius: 100%;
+    height: 6px;
+    width: 6px;
+}
