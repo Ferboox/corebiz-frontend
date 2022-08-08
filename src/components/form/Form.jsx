@@ -17,14 +17,14 @@ export function Form() {
     nameInput.classList.remove('border','border-danger')
     emailInput.classList.remove('border','border-danger')
 
-    // Verificamos que el campo de Nombre este lleno
+    // Verificamos que el campo de Nombre este lleno.
     if(!nameInput.value){
       nameInput.classList.add('border','border-danger')
       document.getElementById('errorName').innerText = 'Debes de ingresar tu nombre'
       flag = 1;
     }
 
-    // Verificamos que el campo de Email este lleno
+    // Verificamos que el campo de Email este lleno.
     if(!emailInput.value){
       emailInput.classList.add('border','border-danger')
       document.getElementById('errorEmail').innerText = 'Debes de ingresar tu email'
@@ -61,7 +61,7 @@ export function Form() {
                 <small id='errorName' className='text-danger mt-4'></small>
             </div>
             <div className='mx-2 form'>
-                <input type="email" className=' form-input' id='email' placeholder='Ingresa tú email'/>
+                <input type="email" className='form-input' id='email' placeholder='Ingresa tú email'/>
                 <small id='errorEmail' className='text-danger'></small>
             </div>
             <button className='mx-2' onClick={(evt) => submitForm()}>¡Lo quiero!</button>

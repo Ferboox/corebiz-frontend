@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Producto from './producto/Producto'
+
 
 import './Productos.css'
 

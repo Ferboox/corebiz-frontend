@@ -1,8 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
+
 
 import './Producto.css'
 
+import { CartContext } from '../../../App'
+
 export default function Producto({producto}) {
+ let _elementos;
+  const {elementos, setElementos}  = useContext(CartContext)
+
+  function addElement(){
+    _elementos = elementos + 1;
+    setElementos(_elementos)
+    localStorage.setItem('elementos', _elementos)
+  }
+
   return (
     <div className='card-product'>
         <div className="card-product-image">
@@ -34,7 +46,7 @@ export default function Producto({producto}) {
 
                 }
             </div>
-            <button className='btn btn-primary'>Comprar</button>
+            <button className='btn btn-primary' onClick={() => addElement()}>Comprar</button>
         </div>
     </div>
   )

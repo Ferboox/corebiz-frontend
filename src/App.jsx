@@ -1,30 +1,47 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, createContext} from "react";
 
 import { Form } from "./components/form/Form";
 import { MenuNav } from "./components/menuNav/MenuNav";
 import Productos from "./components/productos/Productos";
 import { Slider } from "./components/slider/Slider";
 
+export const CartContext = createContext()
+
+
 export function App(){
     // Variable para almacenar los productos obtenidos
-    const [productos, setProductos] = useState([])
+    const [productos, setProductos] = useState([]) 
+
+    const [elementos, setElementos] = useState(0)
+    
+    const value = {elementos, setElementos};
 
     // Solo lo utilizaré una vez que se terminé de cargar el componente
     useEffect(() => {
+        getCart()
         getProducts();
     }, []);
     
+    const getCart = () =>{
+        if(localStorage.key('elementos')){
+            setElementos(localStorage.getItem('elementos'))
+        }
+    }
     // Obtener todos los productos mediante la API
     const getProducts = async () =>{
         let response = await fetch('https://corebiz-test.herokuapp.com/api/v1/products')
         setProductos(await response.json())
     }
 
+    console.log(elementos)
+
     return(
     <>
-        <MenuNav></MenuNav>
-        <Slider></Slider>
-        <Productos productos={productos}></Productos>
+        <CartContext.Provider value={value}>
+            <MenuNav></MenuNav>
+            <Slider></Slider>
+            <Productos productos={productos}></Productos>
+        </CartContext.Provider>
         <Form></Form>
         <div className="footer">
             <div className="content row mx-auto py-3">
