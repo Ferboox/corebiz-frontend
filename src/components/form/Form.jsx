@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './Form.css'
 export function Form() {
+
+  const [success, setSucess] = useState(0)
 
   // Función para mandar la petición POST a la API.
   const submitForm = async () => {
@@ -46,7 +48,12 @@ export function Form() {
 
       fetch("https://corebiz-test.herokuapp.com/api/v1/newsletter", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+          if(!result.includes('error')){
+            setSucess(1)
+          }
+
+        })
         .catch(error => console.log('error', error));
     }
 
@@ -56,15 +63,27 @@ export function Form() {
     <div className='form-container'>
         <h5 className='py-4'>¡Participa en nuestras novedades con promociones y novedades!</h5>
         <div className='d-flex flex-wrap justify-content-center'>
-            <div className='mx-2 form'>
-                <input type="text" className='form-input' id='name' placeholder='Ingresa tú nombre'/>
-                <small id='errorName' className='text-danger mt-4'></small>
-            </div>
-            <div className='mx-2 form'>
-                <input type="email" className='form-input' id='email' placeholder='Ingresa tú email'/>
-                <small id='errorEmail' className='text-danger'></small>
-            </div>
-            <button className='mx-2' onClick={(evt) => submitForm()}>¡Lo quiero!</button>
+            { !success &&
+                <>
+                  <div className='mx-2 form'>
+                    <input type="text" className='form-input' id='name' placeholder='Ingresa tú nombre'/>
+                    <small id='errorName' className='text-danger mt-4'></small>
+                </div>
+                <div className='mx-2 form'>
+                    <input type="email" className='form-input' id='email' placeholder='Ingresa tú email'/>
+                    <small id='errorEmail' className='text-danger'></small>
+                </div>
+                <button className='mx-2' onClick={(evt) => submitForm()}>¡Lo quiero!</button>
+                </>
+            }
+            {success &&
+                <>
+                  <h5>Su correo electrónico ha sido registrado con éxito! </h5>
+                  <br />
+                  <p>A partir de ahora recibirás novedades y ofertas exclusivas.</p>
+                  <button className='btn btn.dark' onClick={() => setSucess(0)}>Registrar nuevo correo electrónico</button>
+                </>
+            }
         </div>
     </div>
   )
