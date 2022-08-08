@@ -65,13 +65,13 @@
 }
 
 .form-search-lg{
-    width: 57%;
+    width: 60%;
     height: 100%;
     text-align: center;
 }
 
 .form-input{
-    width: 92%;
+    width: 96%;
     border-style: none none solid none;
     border-color: #b6b6b6;
     padding: 0.25rem;
@@ -88,7 +88,7 @@
 
 .cart{
     height: 100%;
-    width: 10%;
+    width: 4%;
     display: flex;
     align-items: center;
     justify-content: left;
