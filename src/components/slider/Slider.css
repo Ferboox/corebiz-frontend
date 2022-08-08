@@ -28,3 +28,7 @@
     height: 6px;
     width: 6px;
 }
+
+.carousel-indicators .active{
+    background-color: #F8475F;
+}
