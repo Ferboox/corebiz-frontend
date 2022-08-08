@@ -1,9 +1,9 @@
 .productos-container{
-    width: 100%;
     height: 60vh;
     width: 75%;
     margin: 0 auto;
     background: #FFFFFF;
+    overflow: hidden;
 }
 
 .productos-container .title{
@@ -25,3 +25,10 @@
     margin-top: 1em;
     padding: 0.5rem;
 }
+
+@media screen and (max-width: 980px) {
+   
+    .productos-container{
+        width: 100%;
+    }
+  }

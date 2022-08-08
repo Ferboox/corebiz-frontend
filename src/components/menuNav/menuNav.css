@@ -184,15 +184,27 @@
 
     .form-search-sm{
         display: block;
-        width: 100%;
+        width: 90%;
         height: 60px;
         text-align: center;
+        margin: 0 auto;
     }
 
     .form-search-sm .lupa{
-            position: relative;
-            top: 12px;
-            left: -20px;
+        position: relative;
+        top: 12px;
+        left: -20px;
+    }
+
+
+    .form-input{
+        width: 90%;
+        border-style: none none solid none;
+        border-color: #b6b6b6;
+        padding: 0.25rem;
+        position: relative;
+        top: 17%;
+        outline: none;
     }
     
     

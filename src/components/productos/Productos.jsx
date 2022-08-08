@@ -3,7 +3,7 @@ import Producto from './producto/Producto'
 
 import './Productos.css'
 
-export default function Productos() {
+export default function Productos({productos}) {
   return (
     <div className='productos-container'>
         <div className='title'>
@@ -12,9 +12,12 @@ export default function Productos() {
         </div>
         <div className='productos-zone'>
             <div className='row'>
-                <div className="col-lg-3 col-sm-6 col-md-6">
-                    <Producto></Producto>
-                </div>
+                {productos.map((producto) => 
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <Producto key={producto.id} producto={producto}></Producto>
+                    </div>
+
+                )}
             </div>
         </div>
     </div>
