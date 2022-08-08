@@ -29,6 +29,11 @@
     border-radius: 0.5em;
 }
 
+.text-danger{
+    position: relative;
+    top: 5px;
+}
+
 @media screen and (max-width: 980px) {
     
 .form-container .form{
